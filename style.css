@@ -25,6 +25,24 @@ body {
     border-radius: 15%;
     margin: 1vw;
 }
+@media (min-width: 500px) and (orientation: landscape) {
+    .pianokey {                       
+        border: 0;
+        width: 7vw;
+        height: 7vw;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 95%;
+        /* background-image: url("./svgs/circle.svg"); */
+        user-select: none;
+        border: 0;
+        background-color: rgba(20, 50, 0,0.2);
+        border-radius: 15%;
+        margin: 1vw;
+    }
+
+}
+
 
 #instrumentListContainer{
     position: fixed;
@@ -41,3 +59,4 @@ body {
 .piano{
     padding-top: 5%;
 }
+
