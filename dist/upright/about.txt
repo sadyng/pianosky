@@ -1,0 +1,11 @@
+https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+
+Upright Piano KW
+
+Version 2019-07-03
+
+Created from a Kawai upright piano located in a living room. Thanks to Inma Martínez de Miguel for kindly letting us access to her home to play and record the piano, and Claudia Marín Martínez for her support the recording day.
+
+It was recorded by Gonzalo <humanogonzalo@gmail.com> and Roberto <roberto@zenvoid.org> on January 2017, using a Zoom H1 portable recorder mounted on a tripod in front of the piano, approximately at the place where the head of a piano player would be. The raw recordings were cropped, edited, and processed by Roberto, using free software programs. Bass notes contain loops.
+
+Published under the terms of the Creative Commons CC0 1.0 public domain dedication.
