@@ -5,6 +5,7 @@ const PIANO_PARAs = {
     rows: 3,
     cols: 5,
     start: 4,
+    volumeStep: 6,
 };
 let menuModel={
     fullscreen:{
@@ -27,16 +28,31 @@ let insSamplerOptionsList = {
         },
         baseUrl: "./salamander/",
     },
-    kawai: {
+    upright: {
         cnname: "钢琴2",
+        urls: {
+            C4: "C4vL.wav",
+            C5: "C5vL.wav",
+            C6: "C6vL.wav",
+           
+        },
+        baseUrl: "./upright/",
+    },
+    honkeytank:{
+        cnname: "酒吧钢琴",
         urls: {
             C4: "C4.wav",
             C5: "C5.wav",
-            C6: "C6.wav",
-            F4: "F4.wav",
-            F5: "F5.wav",
         },
-        baseUrl: "./kawai/",
+        baseUrl: "./honkeytank/",
+    },
+    clarinet:{
+        cnname: "单簧",
+        urls: {
+            D4: "D4.wav",
+            D5: "D5.wav",
+        },
+        baseUrl: "./clarinet/",
     },
     guitar: {
         cnname: "吉他",
@@ -139,7 +155,6 @@ function toggleFullScreen() {
 function init(rows, cols, start, instrumentInfo) {
     sampler = new Tone.Sampler(instrumentInfo).toDestination();
     Tone.loaded().then(() => {
-        sampler.volume.value = 10;
         let model = new PianoModel(rows, cols, start);
         let view = new PianoView(document.querySelector("#app"), model.keyRows);
         document
@@ -148,15 +163,7 @@ function init(rows, cols, start, instrumentInfo) {
     });
 }
 
-let currentInstrumentInfo = {
-    urls: {
-        C4: "C4.wav",
-        E6: "E6.wav",
 
-        A6: "A6.wav",
-    },
-    baseUrl: "./ocarina/",
-};
 
 let toogleFullScreenElem = document.querySelector("#togglefs");
 let chInstrumentElem = document.querySelector("#chinstrument");
@@ -166,7 +173,7 @@ toogleFullScreenElem.addEventListener("click", (e) => {
     toggleFullScreen();
 });
 increaseVoluemElm.addEventListener("click", (e) => {
-    sampler.volume.value+=10;
+    sampler.volume.value+=PIANO_PARAs.volumeStep;
     alert("音量已增加")
 });
 
