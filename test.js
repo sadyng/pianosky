@@ -1,35 +1,26 @@
-import * as Tone from 'tone'
+import * as Tone from "tone";
 
+// $0.dispatchEvent(new PointerEvent('pointerdown'))
 
-let b1=document.querySelector('#b1');
-const gainNode = new Tone.Gain(0).toDestination();
-gainNode.gain.rampTo(4,3);
+let b1 = document.querySelector("#b1");
+const synth = new Tone.Synth().toDestination();
 
+document.body.addEventListener("pointerdown", (e) => {
+    // trigger the attack immediately
+    synth.triggerAttack("C4", "+0");
+    alert(888)
+    console.log("pointerdown:" + Date.now());
+    
+    // wait one second before triggering the release
+    synth.triggerRelease("+0.5");
+});
 
-const sampler = new Tone.Sampler({
-	urls: {
-		"C4": "C4.mp3",
-		"D#4": "Ds4.mp3",
-		"F#4": "Fs4.mp3",
-		"A4": "A4.mp3",
-	},
-	release: 1,
-	baseUrl: "https://tonejs.github.io/audio/salamander/",
-}).connect(gainNode);
+// b1.addEventListener('click',(e)=>{
+//     console.log('click:'+Date.now())
+// })
 
-Tone.loaded().then(() => {
-    b1.addEventListener('click',(e)=>{
-        console.log(888)
-        sampler.triggerAttackRelease(["Eb4", "G4", "Bb4"], 1);
-        
-    })
+// console.log('start pointerdown at:'+Date.now());
+// b1.dispatchEvent(new PointerEvent('pointerdown'))
 
-})
-
-urls: {
-    C4: "C4.wav",
-    C5: "C5.wav",
-    F4: "F4.wav",
-    F5: "F5.wav",
-    C6: "C6.wav"
-},
+// console.log('start click at:'+Date.now());
+// b1.dispatchEvent(new PointerEvent('click'))
